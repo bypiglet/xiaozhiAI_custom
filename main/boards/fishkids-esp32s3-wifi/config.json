@@ -4,7 +4,7 @@
         {
             "name": "fishkids-esp32s3-wifi",
             "sdkconfig_append": [
-                "CONFIG_LCD_ST7789_240X320_7PIN=y"
+                "CONFIG_LCD_ST7789_240X320=y"  
             ]
         }
     ]
