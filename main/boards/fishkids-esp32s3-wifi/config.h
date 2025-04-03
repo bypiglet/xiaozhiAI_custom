@@ -5,10 +5,6 @@
 
 #include <driver/gpio.h>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b38d80055a04195d50c9c7f7dac480ed019dd89b
 #define AUDIO_INPUT_SAMPLE_RATE      24000
 #define AUDIO_OUTPUT_SAMPLE_RATE     24000
 
