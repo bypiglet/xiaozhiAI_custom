@@ -2,7 +2,7 @@
 #include "spi_connect.h"
 #include "driver/spi_master.h"
 #include "esp_log.h"
-
+#include "my_udp/my_udp.h"
 
 spi_device_handle_t spi;
 
@@ -27,7 +27,7 @@ void SPI_Master_Init()
 
     spi_device_interface_config_t dev_config = {
         .mode = 0, // SPI mode 0
-        .clock_speed_hz = 1000000, // 1 MHz
+        .clock_speed_hz = 20*1000*1000, // 1 MHz
         .spics_io_num = to_stm32_cs,
         .flags =0,
         .queue_size = 7,
@@ -49,13 +49,14 @@ void SPI_Master_Receive(uint8_t *tx_data, uint8_t *rx_data, size_t lenth)
         .tx_buffer=tx_data,
         .rx_buffer=rx_data,
     };
-    ESP_LOGI("SPI", "Start SPI transmit: tx=0x%02X", *tx_data);
+    //ESP_LOGI("SPI", "Start SPI transmit: tx=0x%02X", *tx_data);
 
     ret = spi_device_transmit(spi,&trans);
     if (ret != ESP_OK) {
-        ESP_LOGE("SPI", "SPI transmit/receive failed: %s", esp_err_to_name(ret));
+        //ESP_LOGE("SPI", "SPI transmit/receive failed: %s", esp_err_to_name(ret));
     } else {
-        ESP_LOGI("SPI", "SPI transmit done");
+        send2wifi(rx_data,1,3333);
+        //ESP_LOGI("SPI", "SPI transmit done");
     }
 }
 
