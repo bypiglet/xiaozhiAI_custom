@@ -1,7 +1,10 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+记录开发项目流程
 
-# _Sample project_
+# WIFI部分 
+
+先用web配网实现基本功能，自此后使用ESP32 touch 去实现配网（备用）。
+
+加入sub-G实现真正图传效果,实现局域图传，目标500m
 
 (See the README.md file in the upper level 'examples' directory for more information about examples.)
 
