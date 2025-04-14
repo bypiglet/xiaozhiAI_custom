@@ -36,7 +36,7 @@ void udp_socket_init() {
     
     //这里修改默认的UDP目的地址,设置前保证nvs区域被清空
     if (read_ip_from_nvs(sizeof(host_ip)) != ESP_OK) {
-        snprintf(host_ip, sizeof(host_ip), "192.168.18.241");
+        snprintf(host_ip, sizeof(host_ip), "192.168.18.136");
         //ESP_LOGE(TAG, "Failed to read IP from NVS, using default.");
     }
     
@@ -86,8 +86,9 @@ void send2wifi(uint8_t *date, size_t length,int PORT) {
             int err = sendto(udp_socket, date, length, 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
             if (err < 0) {
                 ESP_LOGE(TAG, "Error occurred during sending: errno %d", errno);
+                vTaskDelay(1000 / portTICK_PERIOD_MS);
             }
-        ESP_LOGI(TAG, "Socket created, sending to %s:%d", host_ip, PORT);
+        //ESP_LOGI(TAG, "Socket created, sending to %s:%d", host_ip, PORT);
 }
 
 

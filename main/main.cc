@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "my_spi_connect/spi_connect.h"
+#include "bp_spi_driver.h"
 #include "my_udp/my_udp.h"
 #include "common/wifi_board.h"
 #include "esp_log.h"
@@ -15,7 +15,7 @@ void app_main(void);  // 声明 app_main 函数
 #endif
 
 
-uint8_t txData = 0x55;  // 要发送的数据
+uint8_t txData = 0x51;  // 要发送的数据
 uint8_t rxData = 0x00;  // 用来接收的数据
 
 // 使用你已经定义好的 SPI_Master_Receive 函数
@@ -25,8 +25,8 @@ void SPI_Master_Receive_And_Respond()
 
     // 调用 SPI_Master_Receive 函数 
     SPI_Master_Receive(&txData, &rxData, 1);
-    // 打印接收到的数据
-    ESP_LOGI("SPI", "Received data: 0x%02X", rxData);
+    // 打印发送的数据
+    //ESP_LOGI("SPI", "Send data: 0x%02X", txData);
 }
 
 
