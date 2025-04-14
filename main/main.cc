@@ -24,7 +24,7 @@ void SPI_Master_Receive_And_Respond()
    
 
     // 调用 SPI_Master_Receive 函数 
-    SPI_Master_Receive(&txData, &rxData, 1);
+    //SPI_Master_Receive(&txData, &rxData, 1);
     // 打印发送的数据
     //ESP_LOGI("SPI", "Send data: 0x%02X", txData);
 }
@@ -37,7 +37,7 @@ void app_main(void)
     //uint8_t rx_data[3];
     wifi_connect();
     udp_socket_init();
-    SPI_Master_Init();
+    //SPI_Master_Init();
     //SPI_Master_Receive(tx_data,rx_data,sizeof(tx_data));
     printf("hello world! \n");
     printf("nothiing to see here \n");
